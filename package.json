@@ -1,0 +1,24 @@
+{
+  "name": "resume",
+  "version": "1.0.0",
+  "description": "CV / Resume Generator. From Markdown to PDF and HTML",
+  "main": "app/main.js",
+  "scripts": {
+	"start" : "node app/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "resume",
+    "cv",
+    "curriculum",
+    "html",
+    "markdown",
+    "pdf"
+  ],
+  "author": "Jorge Moreno aka moro (moro.es, @alterebro)",
+  "license": "MIT",
+  "devDependencies": {
+    "html-pdf": "^2.1.0",
+    "marked": "^0.3.6"
+  }
+}

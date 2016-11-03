@@ -1,0 +1,262 @@
+// ---------------------------------------
+// Vars & Mixins @less
+@color-fg 		: #38383f;
+@color-bg 		: #ffffff;
+@color-grey 	: #909090;
+@color-primary 	: #5c7ea8; // #5ca87e
+
+@margin-size				: 2rem;
+@margin-size-print 			: 3.5mm;
+@margin-size-print-small 	: 2mm;
+
+@breakpoint-mobile 	: 580;
+@mobile 			: ~"screen and (max-width: @{breakpoint-mobile}px)"; 	// Default
+@non-mobile 		: ~"screen and (min-width: @{breakpoint-mobile}px)"; 	// Matchs both @tablet and @desktop
+
+.transition( @value : all 0.3s ease-out) {
+	-webkit-transition: @value;
+	transition: @value;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+
+// ---------------------------------------
+html {
+	font-family: 'Inconsolata', 'Menlo', 'Monaco', 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
+	font-weight: 400;
+	font-size: 62.5%;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	box-sizing: border-box;
+	background: @color-bg;
+	color: @color-fg;
+}
+body {
+	font-size: 1.5em;
+	line-height: 1.35;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+article, footer, header, section, main { display: block; }
+b, strong { font-weight: 700; }
+
+a {
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
+	color: @color-primary;
+	text-decoration: none;
+	border-bottom: solid transparent 1px;
+	.transition();
+}
+a:active, a:hover {
+	outline-width: 0;
+	color: @color-fg;
+	border-bottom: solid @color-primary 1px;
+}
+
+// ---------------------------------------
+html, body, h1, h2, h3, p, ul, li {
+	margin: 0;
+	padding: 0;
+}
+h1, h2, h3 {
+	font-size: 100%;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: darken(@color-fg, 25%);
+	a {
+		text-transform: none;
+		font-weight: 400;
+	}
+}
+ul {
+	list-style: none;
+
+	li {
+		position: relative;
+		&:before {
+			content: '\203A';
+			font-weight: 700;
+			color: @color-primary;
+			display: block;
+			float: left;
+			position: absolute;
+			top: 0;
+			left: .25rem;
+		}
+	}
+}
+
+header {
+	border-top: none !important;
+	h1, h2 {
+		font-size: 110%;
+	}
+}
+section {
+	ul {
+		li {
+			a { font-weight: 700; }
+			em {
+				font-style: normal;
+				color: @color-grey;
+			}
+		}
+	}
+	ul:last-child { margin: 0; }
+
+	> p {
+		&:last-child { margin: 0; }
+	}
+
+	> ul {
+		li:last-child p { padding: 0; }
+	}
+}
+
+
+
+@media screen {
+
+	// Top bar on screen
+	.nav-bar {
+		z-index: 1;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: @margin-size*2;
+		line-height: @margin-size*2;
+		border-bottom: solid lighten(@color-grey, 25%) 1px;
+		background: fade(@color-bg, 90%);
+		box-shadow: 0 2px 0 fade(@color-grey, 10%);
+
+		p {
+			padding: 0 @margin-size;
+			&.pdf {
+				font-weight: 700;
+				padding: 0 @margin-size 0 24px;
+				position: absolute;
+				top: 0;
+				right: 0;
+				background-image: url(data:image/svg+xml,%09%09%09%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%20width%3D%2216%22%20height%3D%2216%22%3E%0A%09%09%09%09%3Cpath%20fill%3D%22%235c7ea8%22%20d%3D%22M26.3%2018.42c-.4-.42-1.36-.64-2.8-.66-.97%200-2.15.07-3.38.25-.55-.3-1.12-.64-1.57-1.06-1.2-1.12-2.2-2.68-2.83-4.4l.1-.43s.7-3.85.5-5.15c-.02-.18-.03-.23-.08-.37l-.06-.15c-.18-.42-.54-.87-1.1-.85h-.35c-.63%200-1.15.3-1.28.8-.4%201.5%200%203.77.78%206.7l-.2.48c-.55%201.34-1.24%202.7-1.84%203.88l-.1.16c-.65%201.23-1.2%202.3-1.76%203.2l-.54.3c-.03%200-.96.5-1.2.62-1.83%201.1-3.06%202.36-3.26%203.36-.07.3-.02.72.3.9l.54.27c.2.1.45.17.7.17%201.32%200%202.85-1.64%204.96-5.32%202.43-.8%205.2-1.46%207.64-1.82%201.85%201.04%204.13%201.77%205.56%201.77.26%200%20.48-.03.66-.08.27-.08.5-.23.65-.45.28-.42.33-1%20.26-1.6%200-.16-.14-.38-.3-.53zM6.6%2025.44c.26-.66%201.2-1.96%202.6-3.1l.52-.48c-1.47%202.35-2.46%203.28-3.1%203.58zm8.35-19.2c.43%200%20.67%201.07.7%202.07s-.23%201.74-.52%202.26c-.24-.77-.36-2-.36-2.78%200%200%200-1.52.18-1.52zm-2.5%2013.68c.3-.53.62-1.08.93-1.68.77-1.44%201.25-2.57%201.6-3.5.73%201.3%201.62%202.4%202.67%203.3.13.1.27.2.4.32-2.12.43-3.96.94-5.6%201.56zm13.45-.12c-.13.08-.5.13-.74.13-.77%200-1.73-.35-3.06-.93.5-.03.98-.05%201.4-.05.78%200%201%200%201.77.2s.76.57.63.65z%22/%3E%0A%09%09%09%09%3Cpath%20fill%3D%22%235c7ea8%22%20d%3D%22M28.68%207.16c-.7-.95-1.66-2.05-2.72-3.12S23.8%202%2022.84%201.32C21.24.14%2020.44%200%2020%200H4.5C3.12%200%202%201.12%202%202.5v27C2%2030.88%203.12%2032%204.5%2032h23c1.38%200%202.5-1.12%202.5-2.5V10c0-.45-.14-1.23-1.32-2.84zm-4.14-1.7c.96.96%201.72%201.82%202.27%202.54H22V3.2c.72.54%201.58%201.3%202.54%202.26zM28%2029.5c0%20.27-.23.5-.5.5h-23c-.27%200-.5-.23-.5-.5v-27c0-.27.23-.5.5-.5H20v7c0%20.55.45%201%201%201h7v19.5z%22/%3E%0A%09%09%09%3C/svg%3E%0A);
+				background-repeat: no-repeat;
+				background-position: center left;
+			}
+		}
+		hr { display: none; }
+	}
+
+	body {
+		margin: @margin-size auto;
+		padding: @margin-size*2 0 0 0;
+		width: 90%;
+		max-width: 800px;
+	}
+	h2, h3 {
+		margin: 0 0 @margin-size/2 0;
+	}
+	ul {
+		li {
+			padding: 0 0 0 @margin-size;
+		}
+	}
+	section {
+		ul {
+			margin: 0 0 @margin-size;
+			li { padding: 0 0 @margin-size/4 @margin-size; }
+			li:last-child { padding: 0 0 0 @margin-size; }
+		}
+		> p { margin: 0 0 @margin-size; }
+		> ul li p { padding: 0 0 .5rem; }
+	}
+
+
+	// @media @mobile
+	header, section, footer {
+		font-size: 1.3rem;
+		padding: @margin-size 0;
+		border-top: solid @color-primary 1px;
+	}
+	section h2 {
+		padding: 0 0 @margin-size/2;
+	}
+}
+@media @non-mobile {
+	header, section, footer {
+		font-size: 1.45rem;
+		position: relative;
+		padding: @margin-size*2 0 @margin-size*2 150px;
+		border-top: solid @color-primary 1px;
+	}
+	section h2 {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 120px;
+		padding: (@margin-size*2 - .5rem) 0 0;
+		border-top: solid @color-primary 5px;
+	}
+}
+
+// ------------------------
+
+@media print {
+
+	footer, .nav-bar { display: none; }
+
+	body {
+		line-height: 1.3;
+		padding: @margin-size-print 0 0;
+	}
+	h2, h3 {
+		margin: 0 0 @margin-size-print/2 0;
+	}
+	ul {
+		li {
+			padding: 0 0 0 @margin-size-print;
+		}
+	}
+	header {
+		h1, h2 {
+			font-size: 120%;
+		}
+	}
+	section {
+		page-break-inside: avoid;
+		ul {
+			margin: 0 0 @margin-size-print-small;
+			li { padding: 0 0 @margin-size-print-small/4 @margin-size-print; }
+			li:last-child { padding: 0 0 0 @margin-size-print; }
+		}
+		> p { margin: 0 0 @margin-size-print-small; }
+		> ul li p { padding: 0 0 .5rem; }
+	}
+	header, section, footer {
+		font-size: 7pt;
+		position: relative;
+		padding: @margin-size-print*1.5 @margin-size-print-small @margin-size-print*1.5 35mm;
+		border-top: solid @color-primary .75pt;
+		border-top-width: thin !important;
+	}
+	section h2 {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 30mm;
+		padding: (@margin-size-print*1.5 - 1mm) 0 0 @margin-size-print-small;
+		border-top: solid @color-primary 1mm;
+	}
+
+}
+
+
+
+// -------------------
+// svg icon for PDF
+/*	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16">
+	<path fill="#5c7ea8" d="M26.3 18.42c-.4-.42-1.36-.64-2.8-.66-.97 0-2.15.07-3.38.25-.55-.3-1.12-.64-1.57-1.06-1.2-1.12-2.2-2.68-2.83-4.4l.1-.43s.7-3.85.5-5.15c-.02-.18-.03-.23-.08-.37l-.06-.15c-.18-.42-.54-.87-1.1-.85h-.35c-.63 0-1.15.3-1.28.8-.4 1.5 0 3.77.78 6.7l-.2.48c-.55 1.34-1.24 2.7-1.84 3.88l-.1.16c-.65 1.23-1.2 2.3-1.76 3.2l-.54.3c-.03 0-.96.5-1.2.62-1.83 1.1-3.06 2.36-3.26 3.36-.07.3-.02.72.3.9l.54.27c.2.1.45.17.7.17 1.32 0 2.85-1.64 4.96-5.32 2.43-.8 5.2-1.46 7.64-1.82 1.85 1.04 4.13 1.77 5.56 1.77.26 0 .48-.03.66-.08.27-.08.5-.23.65-.45.28-.42.33-1 .26-1.6 0-.16-.14-.38-.3-.53zM6.6 25.44c.26-.66 1.2-1.96 2.6-3.1l.52-.48c-1.47 2.35-2.46 3.28-3.1 3.58zm8.35-19.2c.43 0 .67 1.07.7 2.07s-.23 1.74-.52 2.26c-.24-.77-.36-2-.36-2.78 0 0 0-1.52.18-1.52zm-2.5 13.68c.3-.53.62-1.08.93-1.68.77-1.44 1.25-2.57 1.6-3.5.73 1.3 1.62 2.4 2.67 3.3.13.1.27.2.4.32-2.12.43-3.96.94-5.6 1.56zm13.45-.12c-.13.08-.5.13-.74.13-.77 0-1.73-.35-3.06-.93.5-.03.98-.05 1.4-.05.78 0 1 0 1.77.2s.76.57.63.65z"/>
+	<path fill="#5c7ea8" d="M28.68 7.16c-.7-.95-1.66-2.05-2.72-3.12S23.8 2 22.84 1.32C21.24.14 20.44 0 20 0H4.5C3.12 0 2 1.12 2 2.5v27C2 30.88 3.12 32 4.5 32h23c1.38 0 2.5-1.12 2.5-2.5V10c0-.45-.14-1.23-1.32-2.84zm-4.14-1.7c.96.96 1.72 1.82 2.27 2.54H22V3.2c.72.54 1.58 1.3 2.54 2.26zM28 29.5c0 .27-.23.5-.5.5h-23c-.27 0-.5-.23-.5-.5v-27c0-.27.23-.5.5-.5H20v7c0 .55.45 1 1 1h7v19.5z"/>
+	</svg>
+*/
