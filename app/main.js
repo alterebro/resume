@@ -16,7 +16,7 @@ var pdf_options = {
 	format : 'A4',
 	orientation : 'portrait',
 	border : {
-		"top": "15mm",
+		"top": "10mm",
 		"right": "15mm",
 		"bottom": "0mm",
 		"left": "15mm"

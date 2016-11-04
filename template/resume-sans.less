@@ -1,0 +1,212 @@
+// ---------------------------------------
+// Vars & Mixins @less
+@color-fg 		: #3e3e3e;
+@color-bg 		: #fff;
+@color-grey 	: #909090;
+@color-primary 	: #6c8eb8; // #09c; // #6c8eb8;
+@color-aux 		: #5b77a8;
+
+@margin-size	: 2rem;
+@margin-print : .3cm;
+
+@breakpoint-mobile 	: 580;
+@mobile 			: ~"all and (max-width: @{breakpoint-mobile}px)"; 	// Default
+@non-mobile 		: ~"all and (min-width: @{breakpoint-mobile}px)"; 	// Matchs both @tablet and @desktop
+
+.transition( @value : all 0.3s ease-out) {
+	-webkit-transition: @value;
+	transition: @value;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Source+Sans+Pro:200,300,400,600,700,900');
+
+// ---------------------------------------
+html {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
+	font-size: 62.5%;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	box-sizing: border-box;
+	background: @color-bg;
+	color: @color-fg;
+}
+body {
+	font-size: 1.5em;
+	line-height: 1.45;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+article, footer, header, section, main { display: block; }
+b, strong { font-weight: bolder; }
+
+a {
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
+	color: @color-primary;
+	text-decoration: none;
+	.transition();
+}
+a:active, a:hover {
+	outline-width: 0;
+	color: @color-fg;
+	text-decoration: underline;
+}
+
+
+
+// ---------------------------------------
+html, body, h1, h2, h3, p, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3 {
+	font-family: 'Rubik', sans-serif;
+	font-size: 100%;
+	font-weight: 700;
+	text-transform: uppercase;
+	a {
+		text-transform: none;
+		font-weight: 400;
+	}
+}
+h2 {
+	font-weight: 500;
+	margin: 0 0 @margin-size/2 0;
+}
+h3 {
+	margin: 0 0 @margin-size/4 0;
+}
+ul {
+	li {
+		position: relative;
+		list-style: none;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 12px;
+			height: 4px;
+			background: @color-aux;
+			border-radius: 5px;
+		}
+	}
+}
+em {
+	font-size: 90%;
+	font-weight: 700;
+	font-style: normal;
+	color: @color-grey;
+	line-height: 1;
+}
+header {
+	border-top: none !important;
+	h1, h2 {
+		font-size: 110%;
+	}
+}
+section, footer {
+	> ul li p a { font-weight: 700; }
+}
+
+
+.nav-bar { display: none; }
+
+@media screen {
+	body {
+		margin: @margin-size auto;
+		width: 90%;
+		max-width: 870px;
+	}
+	header, section, footer {
+		font-size: 1.6rem;
+		position: relative;
+		padding: @margin-size*2 @margin-size/2 @margin-size*2 200px;
+		border-top: solid @color-aux 1px;
+
+		> ul {
+			margin: 0 0 @margin-size;
+			&:last-child { margin: 0; }
+
+			li p { padding: 0 0 @margin-size/2; }
+			li:last-child p { padding: 0; }
+		}
+		> p {
+			margin: 0 0 @margin-size/2;
+			&:last-child { margin: 0; }
+		}
+	}
+	ul li {
+		padding-left: @margin-size*1.5;
+
+		&:before {
+			top: 8px;
+			left: 5px;
+		}
+	}
+	section h2 {
+		border-top: solid @color-aux 5px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 170px;
+		padding: (@margin-size*2 - .5rem) 0 0 @margin-size/2;
+	}
+}
+
+
+
+
+@media print {
+
+	body {}
+	@page {}
+	@page :first {}
+
+	header, section {
+		font-size: 6pt;
+		position: relative;
+		padding: @margin-print*2 @margin-print @margin-print*2 3cm;
+		border-top: solid @color-aux 0.8pt;
+		page-break-inside: avoid;
+
+		> ul {
+			margin: 0 0 @margin-print;
+			&:last-child { margin: 0; }
+
+			li p { padding: 0 0 @margin-print/2; }
+			li:last-child p { padding: 0; }
+		}
+		> p {
+			margin: 0 0 @margin-print/2;
+			&:last-child { margin: 0; }
+		}
+	}
+	header {
+		margin: 1cm 0 0;
+	}
+	footer { display: none; }
+	ul li {
+		padding-left: @margin-print*2;
+		&:before {
+			top: 1mm;
+			left: .5mm;
+			width: 3mm;
+			height: .75mm;
+			border-radius: 0;
+		}
+	}
+	section h2 {
+		border-top: solid @color-aux 1mm;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 2.5cm;
+		padding: (@margin-print*2) - 1mm 0 0 @margin-print/2;
+	}
+
+}
