@@ -27,7 +27,7 @@ If you want to have further information about me or the work I do, visit my pers
 - **CSS3**, CSS Pre processors ( **LESS** and SCSS/Sass ) and CSS Frameworks ( Bootstrap, Skeleton, Foundation ).
 - **JavaScript** native client side programming (aka Vanilla JS), AJAX, libraries like **jQuery**, Zepto.js, P5.js, Processing.js.. and MVVM Frameworks such as **Vue.js** or AngularJS.
 - Responsive Design ( **RWD** ) and cross device compatible development.
-- Front End automation with Task runners / Build systems : **Grunt** &amp; **Gulp**.
+- Front End automation with Task runners / Build systems : **Grunt**, **Gulp**, **Webpack**.
 - Source code Version control workflow with **Git** / **GitHub**.
 
 ### Server Side Web Development
