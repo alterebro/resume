@@ -45,7 +45,7 @@ If you want to have further information about me or the work I do, visit my pers
 
 ### Extra / Misc
 
-- Cross Plattform Mobile Application development with **PhoneGap** and **Apache Cordova**.
+- Cross Platform Mobile Application development with **PhoneGap** and **Apache Cordova**.
 - Creative programming using the **Processing** Language.
 - **Open Source** Contributor.
 
@@ -121,4 +121,4 @@ If you want to have further information about me or the work I do, visit my pers
 
 ---
 
-**Jorge Moreno** aka **moro** &rsaquo; [alterebro@gmail.com](mailto:alterebro@gmail.com)
+**Jorge Moreno** aka **moro** — [alterebro@gmail.com](mailto:alterebro@gmail.com)
