@@ -4,8 +4,6 @@
 
 Exported files are created using the markup defined on the template file (themed with CSS) located on the `/template` and generated using PhantomJS via Node.
 
-**&mdash; Live URL : [resume.moro.es](http://resume.moro.es)**
-
 ```sh
 $ git clone https://github.com/alterebro/resume
 $ cd resume
@@ -18,4 +16,4 @@ $ npm start   	# Builds the HTML and PDF
 ```
 
 **[MIT Licensed](https://en.wikipedia.org/wiki/MIT_License)**. 
-Copyright (c) 2016 Jorge Moreno ( [moro.es](http://moro.es), [@alterebro](https://twitter.com/alterebro) )
+Copyright (c) 2016 Jorge Moreno ( [moro.es](https://moro.es), [@alterebro](https://x.com/alterebro) )

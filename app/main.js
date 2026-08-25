@@ -4,8 +4,8 @@
 // HTML-PDF option list : https://github.com/marcbachmann/node-html-pdf#options
 // ----------------------------
 var template_folder 	= '/template';
-var output_file_html 	= './index.html';
-var output_file_pdf 	= './ui-developer-jorge-moreno-cv.pdf';
+var output_file_html 	= './dist/cv.html';
+var output_file_pdf 	= './dist/cv.pdf';
 var input_file_md 		= './resume.md';
 
 var markdown_options = {
